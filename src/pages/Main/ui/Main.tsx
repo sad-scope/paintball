@@ -3,13 +3,10 @@ import type { ReactElement } from 'react';
 import PlayerTileCard from 'features/PlayerTileCard/ui/PlayerTileCard.tsx';
 import { players } from 'shared/constants';
 import { Button } from 'shared/ui';
-import styles from './Main.module.scss';
-import classNames from 'classnames';
 import { Teams } from '../../../widgets/Teams';
+import styles from './Main.module.scss';
 
-export type MainProps = {};
-
-function Main(props: MainProps): ReactElement {
+function Main(): ReactElement {
   const { handleBalanceTeams, balancedTeams, teamsAverages, handleClearTeams } =
     useTeams();
 

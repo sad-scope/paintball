@@ -1,11 +1,7 @@
 import { useState } from 'react';
 import { players } from 'shared/constants';
 import type { TCharacteristics, TPlayer } from 'shared/types';
-import {
-  calculateTeamAverages,
-  formBalancedTeams,
-  formRandomTeams,
-} from '../lib/teamBalancer.ts';
+import { calculateTeamAverages, formRandomTeams } from '../lib/teamBalancer.ts';
 
 export type TTeamsHookResult = {
   balancedTeams: TPlayer[][];

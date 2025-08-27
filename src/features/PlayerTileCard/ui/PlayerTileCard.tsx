@@ -1,25 +1,18 @@
 import type { ReactElement } from 'react';
+import { PolarGrid, Radar, RadarChart, ResponsiveContainer } from 'recharts';
+import { characteristics } from 'shared/constants';
 import type { TCharacteristics, TPlayer } from 'shared/types';
 import { Image, ModalsContext } from 'shared/ui';
-import styles from './PlayerTileCard.module.scss';
-import {
-  PolarAngleAxis,
-  PolarGrid,
-  PolarRadiusAxis,
-  Radar,
-  RadarChart,
-  ResponsiveContainer,
-} from 'recharts';
-import { characteristics } from 'shared/constants';
 import { useData } from '../../../shared/DataProvider';
 import { PlayerCard } from '../../../widgets/PlayerCard/ui';
+import styles from './PlayerTileCard.module.scss';
 
 export type PlayerTileCardProps = {
   player: TPlayer;
 };
 
 function PlayerTileCard({ player }: PlayerTileCardProps): ReactElement {
-  const { showModal, closeModal } = useData({ Context: ModalsContext });
+  const { showModal } = useData({ Context: ModalsContext });
 
   const data = characteristics.map((char) => ({
     subject: char.name,

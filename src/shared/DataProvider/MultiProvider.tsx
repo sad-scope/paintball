@@ -1,8 +1,8 @@
-import React, { ReactElement } from 'react';
+import React, { type ReactElement } from 'react';
 
 const chainAsChildren = (
   children: React.ReactNode,
-  component: React.ReactElement
+  component: React.ReactElement,
 ): ReactElement => React.cloneElement(component, {}, children);
 
 export type MultiProviderProps = React.PropsWithChildren<{

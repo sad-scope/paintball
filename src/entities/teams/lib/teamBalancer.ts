@@ -75,24 +75,6 @@ const calculateCharacteristicsDiff = (
   );
 };
 
-function getAverage(numbers: number[]): number {
-  // Проверяем, не пустой ли массив
-  if (numbers.length === 0) {
-    return 0; // Или другое значение по умолчанию для пустого массива
-  }
-
-  // Суммируем все элементы массива с помощью reduce()
-  const sum = numbers.reduce(
-    (accumulator, currentValue) => accumulator + currentValue,
-    0,
-  );
-
-  // Делим сумму на количество элементов в массиве
-  const average = sum / numbers.length;
-
-  return average;
-}
-
 export const formRandomTeams = (players: TPlayer[]): TPlayer[][] => {
   const teams = shuffleArray(players);
 
