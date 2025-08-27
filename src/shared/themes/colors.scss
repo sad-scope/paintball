@@ -1,0 +1,24 @@
+// @public api
+@function color($name, $opacity: null) {
+  @if ($opacity != null) {
+    @if (type-of($opacity) != 'number') {
+      @error 'The "opacity" color must be number!';
+    }
+
+    @return unquote('rgba(var(--#{$name}), #{$opacity})');
+  }
+
+  @return unquote('rgb(var(--#{$name}))');
+}
+
+// @public api
+@function hexToRGB($hex) {
+  @return red($hex), green($hex), blue($hex);
+}
+
+// @public api
+@mixin getTheme($colors) {
+  @each $name, $color in $colors {
+    --#{$name}: #{hexToRGB($color)};
+  }
+}

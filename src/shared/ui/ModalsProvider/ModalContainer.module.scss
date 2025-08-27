@@ -1,0 +1,14 @@
+@import 'shared/themes/colors';
+
+@mixin background() {
+  background-color: color(background2);
+}
+
+.content {
+  padding: 16px;
+  @include background();
+}
+
+.header {
+  @include background();
+}

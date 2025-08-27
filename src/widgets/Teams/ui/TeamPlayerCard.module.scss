@@ -1,0 +1,11 @@
+@import 'shared/themes/colors';
+
+.card {
+  width: 100%;
+  background-color: color(background);
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
+  padding: 4px;
+  gap: 8px;
+}
