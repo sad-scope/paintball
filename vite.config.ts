@@ -5,6 +5,11 @@ import { defineConfig } from 'vite';
 // https://vite.dev/config/
 export default defineConfig({
   plugins: [react()],
+  base: '/', // Для Vercel используем корневой путь
+  build: {
+    outDir: 'dist', // По умолчанию для Vite
+    sourcemap: true, // Для отладки на Vercel
+  },
   resolve: {
     alias: {
       widgets: path.resolve(__dirname, 'src/widgets'),
