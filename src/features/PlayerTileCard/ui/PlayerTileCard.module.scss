@@ -1,7 +1,8 @@
 @import 'shared/themes/colors';
 
 .card {
-  display: flex;
+  display: grid;
+  grid-template-columns: 80px 3fr 2fr;
   padding: 12px;
   width: 100%;
   height: 150px;
@@ -20,4 +21,9 @@
 
 .tag {
   color: color(spbSky0);
+}
+
+.icon {
+  width: 12px;
+  height: 12px;
 }
