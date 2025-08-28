@@ -14,6 +14,7 @@ import {
 } from '../../../shared/constants';
 import TeamPlayerCard from './TeamPlayerCard.tsx';
 import styles from './Teams.module.scss';
+import { sortPlayers } from '../../../shared/lib';
 
 export type TeamsProps = {
   balancedTeams: TPlayer[][];
@@ -36,7 +37,7 @@ function Teams({
             <div key={index}>
               <p>{`Команда ${index + 1}`}</p>
               <div className={styles.cards}>
-                {item.map((player) => (
+                {sortPlayers(item).map((player) => (
                   <TeamPlayerCard key={player.tag} player={player} />
                 ))}
               </div>
