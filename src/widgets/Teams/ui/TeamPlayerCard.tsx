@@ -1,15 +1,24 @@
 import type { ReactElement } from 'react';
-import styles from './TeamPlayerCard.module.scss';
 import type { TPlayer } from 'shared/types';
-import { Image } from '../../../shared/ui';
+import { useData } from '../../../shared/DataProvider';
+import { Image, ModalsContext } from '../../../shared/ui';
+import { PlayerCard } from '../../PlayerCard/ui';
+import styles from './TeamPlayerCard.module.scss';
 
 export type TeamPlayerCardProps = {
   player: TPlayer;
 };
 
 function TeamPlayerCard({ player }: TeamPlayerCardProps): ReactElement {
+  const { showModal } = useData({ Context: ModalsContext });
+
   return (
-    <div className={styles.card}>
+    <div
+      onClick={() => {
+        showModal?.(<PlayerCard player={player} />);
+      }}
+      className={styles.card}
+    >
       <Image type="teamCard" src={player.imageSrc} />
       <p>{player.name}</p>
     </div>
