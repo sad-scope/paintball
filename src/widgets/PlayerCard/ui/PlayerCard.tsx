@@ -47,7 +47,6 @@ function PlayerCard({ player }: PlayerCardProps): ReactElement {
             tick={({ payload, x, y }) => {
               const Component = characteristicsIcons[payload.value ?? ''];
 
-              console.log({ x, y });
               return (
                 <g transform={`translate(${x},${y})`}>
                   <Component

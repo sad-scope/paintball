@@ -48,13 +48,9 @@ function PlayerTileCard({ player }: PlayerTileCardProps): ReactElement {
               const Component = characteristicsIcons[payload.value ?? ''];
 
               return (
-                <Component
-                  transform={`translate(${x},${y})`}
-                  width={16}
-                  height={16}
-                  x={-8}
-                  y={-8}
-                />
+                <g transform={`translate(${x},${y})`}>
+                  <Component width={16} height={16} x={-8} y={-8} />
+                </g>
               );
             }}
           />
