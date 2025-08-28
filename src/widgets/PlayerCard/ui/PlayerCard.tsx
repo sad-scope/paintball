@@ -49,12 +49,13 @@ function PlayerCard({ player }: PlayerCardProps): ReactElement {
 
               console.log({ x, y });
               return (
-                <Component
-                  transform={`translate(${x},${y})`}
-                  width={24}
-                  height={24}
-                  {...transforms[payload.value ?? '']}
-                />
+                <g transform={`translate(${x},${y})`}>
+                  <Component
+                    width={24}
+                    height={24}
+                    {...transforms[payload.value ?? '']}
+                  />
+                </g>
               );
             }}
           />
