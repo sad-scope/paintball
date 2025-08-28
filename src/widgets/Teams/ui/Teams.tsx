@@ -43,7 +43,7 @@ function Teams({
             </div>
           );
         })}
-        {balancedTeams.map((item, index) => {
+        {balancedTeams.map((_, index) => {
           const data = characteristics.map((char) => ({
             subject: char.name,
             value: teamsAverages[index][char.key as keyof TCharacteristics],
@@ -51,7 +51,7 @@ function Teams({
           }));
 
           return (
-            <ResponsiveContainer height={120}>
+            <ResponsiveContainer key={index} height={120}>
               <RadarChart data={data}>
                 <PolarGrid />
                 {/*<PolarAngleAxis dataKey="subject" />*/}
