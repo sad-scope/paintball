@@ -90,7 +90,7 @@ export const players: TPlayer[] = [
       communication: 9,
       reaction: 5,
     },
-    imageSrc: getImage(['players', 'unknown']),
+    imageSrc: getImage(['players', 'roma']),
   },
   {
     name: 'Кирилл Ш',
@@ -105,7 +105,7 @@ export const players: TPlayer[] = [
       communication: 5,
       reaction: 6,
     },
-    imageSrc: getImage(['players', 'unknown']),
+    imageSrc: getImage(['players', 'kirillShe']),
   },
   {
     name: 'Данила',
@@ -225,11 +225,11 @@ export const players: TPlayer[] = [
       communication: 8,
       reaction: 7,
     },
-    imageSrc: getImage(['players', 'unknown']),
+    imageSrc: getImage(['players', 'artema']),
   },
   {
     name: 'Артем П',
-    tag: 'Кудрявыш',
+    tag: 'Педро',
     description:
       "Молодой фронтендер. Его кудри развеваются на ветру, когда он бежит за укрытие, а его ум помогает придумывать хитрые планы. Но пока его главная тактика — 'стреляй и беги'.",
     characteristics: {
@@ -255,6 +255,6 @@ export const players: TPlayer[] = [
       communication: 6,
       reaction: 8,
     },
-    imageSrc: getImage(['players', 'unknown']),
+    imageSrc: getImage(['players', 'alan']),
   },
 ];

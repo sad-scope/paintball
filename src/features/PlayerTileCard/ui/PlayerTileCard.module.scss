@@ -2,6 +2,7 @@
 
 .card {
   display: grid;
+  position: relative;
   grid-template-columns: 80px 3fr 2fr;
   padding: 12px;
   width: 100%;
@@ -26,4 +27,11 @@
 .icon {
   width: 12px;
   height: 12px;
+}
+
+.control {
+  position: absolute;
+  right: 12px;
+  top: 8px;
+  z-index: 10;
 }

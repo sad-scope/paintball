@@ -11,14 +11,21 @@ import { characteristics, characteristicsIcons } from 'shared/constants';
 import type { TCharacteristics, TPlayer } from 'shared/types';
 import { Image, ModalsContext } from 'shared/ui';
 import { useData } from '../../../shared/DataProvider';
+import { CheckIcon, CrossIcon } from '../../../shared/icons';
 import { PlayerCard } from '../../../widgets/PlayerCard/ui';
 import styles from './PlayerTileCard.module.scss';
 
 export type PlayerTileCardProps = {
   player: TPlayer;
+  onRemovePlayer?: (player: TPlayer) => void;
+  onAddPlayer?: (player: TPlayer) => void;
 };
 
-function PlayerTileCard({ player }: PlayerTileCardProps): ReactElement {
+function PlayerTileCard({
+  player,
+  onAddPlayer,
+  onRemovePlayer,
+}: PlayerTileCardProps): ReactElement {
   const { showModal } = useData({ Context: ModalsContext });
 
   const data = characteristics.map((char) => ({
@@ -34,6 +41,24 @@ function PlayerTileCard({ player }: PlayerTileCardProps): ReactElement {
       }}
       className={styles.card}
     >
+      <div
+        className={styles.control}
+        onClick={(e) => {
+          e.stopPropagation();
+
+          if (onAddPlayer) {
+            onAddPlayer?.(player);
+          } else {
+            onRemovePlayer?.(player);
+          }
+        }}
+      >
+        {onAddPlayer ? (
+          <CheckIcon width={24} height={24} />
+        ) : (
+          <CrossIcon width={24} height={24} />
+        )}
+      </div>
       <Image src={player.imageSrc} />
       <div className={styles.names}>
         <h2>{player.name}</h2>
