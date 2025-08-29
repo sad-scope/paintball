@@ -1,19 +1,22 @@
+import { DropdownMenu, Checkbox, Button } from '@gravity-ui/uikit';
 import { useTeams } from 'entities/teams';
 import type { ReactElement } from 'react';
 import PlayerTileCard from 'features/PlayerTileCard/ui/PlayerTileCard.tsx';
-import { Button } from 'shared/ui';
-import { Teams } from '../../../widgets/Teams';
+import { BackIcon, GearIcon } from 'shared/icons';
+import { Teams } from 'widgets/Teams';
 import styles from './Main.module.scss';
 
 function Main(): ReactElement {
   const {
     handleBalanceTeams,
     balancedTeams,
+    options,
     teamsAverages,
     handleClearTeams,
     allPlayersSorted,
     handleAddPlayer,
     handleDeletePlayer,
+    handleChangeOption,
   } = useTeams();
 
   return (
@@ -21,8 +24,48 @@ function Main(): ReactElement {
       {balancedTeams.length ? (
         <>
           <div className={styles.controls}>
-            <Button onClick={handleClearTeams}>Вернуться</Button>
-            <Button onClick={handleBalanceTeams}>Перемешать</Button>
+            <BackIcon onClick={handleClearTeams} />
+            <div className={styles.makeBlock}>
+              <Button view="action" size="l" onClick={handleBalanceTeams}>
+                Перемешать
+              </Button>
+              <DropdownMenu
+                renderSwitcher={(props) => (
+                  <Button {...props} className={styles.action} view="flat">
+                    <GearIcon />
+                  </Button>
+                )}
+              >
+                <div className={styles.dropdownContent}>
+                  <Checkbox
+                    name="considerGender"
+                    size="l"
+                    checked={options.considerGender}
+                    onChange={(e) => {
+                      handleChangeOption({
+                        name: e.target.name,
+                        checked: e.target.checked,
+                      });
+                    }}
+                  >
+                    Учитывать гендер
+                  </Checkbox>
+                  <Checkbox
+                    name="balancedTeams"
+                    size="l"
+                    checked={options.balancedTeams}
+                    onChange={(e) => {
+                      handleChangeOption({
+                        name: e.target.name,
+                        checked: e.target.checked,
+                      });
+                    }}
+                  >
+                    Учитывать характеристики
+                  </Checkbox>
+                </div>
+              </DropdownMenu>
+            </div>
           </div>
 
           <Teams balancedTeams={balancedTeams} teamsAverages={teamsAverages} />
@@ -59,7 +102,7 @@ function Main(): ReactElement {
 
           <div className={styles.fixed}>
             <div className={styles.fixedContent}>
-              <Button onClick={handleBalanceTeams}>
+              <Button size={'xl'} view="action" onClick={handleBalanceTeams}>
                 Сбалансировать команды
               </Button>
             </div>

@@ -12,6 +12,7 @@
     "preview": "vite preview"
   },
   "dependencies": {
+    "@gravity-ui/uikit": "^7.20.0",
     "@types/recharts": "^2.0.1",
     "classnames": "^2.5.1",
     "motion": "^12.23.12",

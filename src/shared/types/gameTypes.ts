@@ -12,5 +12,7 @@ export type TPlayer = {
   tag: string;
   description: string;
   imageSrc: string;
+  gender: 'male' | 'female';
+  playerScore: number;
   characteristics: TCharacteristics;
 };
