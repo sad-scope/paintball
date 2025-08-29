@@ -1,4 +1,4 @@
-import { DropdownMenu, Checkbox, Button } from '@gravity-ui/uikit';
+import { Button, Checkbox, DropdownMenu } from '@gravity-ui/uikit';
 import { useTeams } from 'entities/teams';
 import type { ReactElement } from 'react';
 import PlayerTileCard from 'features/PlayerTileCard/ui/PlayerTileCard.tsx';
