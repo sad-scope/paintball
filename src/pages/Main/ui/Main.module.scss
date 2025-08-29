@@ -85,4 +85,10 @@
       background-color: transparent;
     }
   }
+
+  &:focus-visible {
+    &::before {
+      outline: none !important;
+    }
+  }
 }
